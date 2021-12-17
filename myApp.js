@@ -1,6 +1,7 @@
 var express = require("express");
 var app = express();
-require("dotenv").config();
+const dotenv = require("dotenv");
+dotenv.config();
 app.get("/", (req, res) => {
   const absolutePath = __dirname + "/views/index.html";
   res.sendFile(absolutePath);
