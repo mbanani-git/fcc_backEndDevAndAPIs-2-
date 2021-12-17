@@ -13,7 +13,7 @@ app.get("/json", (req, res) => {
   } else {
     message = "Hello json"; //ok
   }
-  res.json({ message: message });
+  res.json({ "message": message });
 });
 
 app.use("/public", express.static(__dirname + "/public"));
