@@ -8,7 +8,7 @@ app.get("/", (req, res) => {
 
 app.get("/json", (req, res) => {
   let response;
-  if (process.env.response_STYLE == "uppercase") {
+  if (process.env.MESSAGE_STYLE == "uppercase") {
     response = "Hello json".toUpperCase();
   } else {
     response = "Hello json"; //ok
