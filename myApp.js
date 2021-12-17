@@ -7,13 +7,13 @@ app.get("/", (req, res) => {
 });
 
 app.get("/json", (req, res) => {
-  let message;
-  if (process.env.MESSAGE_STYLE === "uppercase") {
-    message = "Hello json".toUpperCase();
+  let response;
+  if (process.env.response_STYLE == "uppercase") {
+    response = "Hello json".toUpperCase();
   } else {
-    message = "Hello json"; //ok
+    response = "Hello json"; //ok
   }
-  res.json({ message: message });
+  res.json({ message: response });
 });
 
 app.use("/public", express.static(__dirname + "/public"));
