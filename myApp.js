@@ -60,12 +60,9 @@ app.get("/name", (req, res, next) => {
 });
 
 app.post("/name", (req, res, next) => {
-  let firstname = req.query.first;
-  let lastname = req.query.last;
-  let name = req.body;
   console.log(req.body);
   // let { first: firstname, last: lastname } = req.query;
-  res.json({ name: `${name}` });
+  res.json({ name: req.body });
   next();
 });
 module.exports = app;
