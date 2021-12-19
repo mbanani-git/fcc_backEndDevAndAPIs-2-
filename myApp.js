@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
 app.use("/public", express.static(__dirname + "/public"));
 app.use(function (req, res, next) {
   let string = req.method + " " + req.path + " - " + req.ip;
-  console.log(string);
+  // console.log(string);
   next();
 });
 
@@ -42,9 +42,16 @@ app.use(function (req, res, next) {
 //     res.json({ time: req.time });
 //   }
 // );
-app.get("/:word/echo", (req, res, next) => {
-  console.log(req.params.word);
-  const a = req.params.word;
-  res.json({ echo: a });
+// app.get("/:word/echo", (req, res, next) => {
+//   console.log(req.params.word);
+//   const a = req.params.word;
+//   res.json({ echo: a });
+// });
+app.get("/name", (req, res, next) => {
+  let firstname = req.query.first;
+  let lastname = req.query.last;
+  // let { first: firstname, last: lastname } = req.query;
+  res.json({ name: `${firstname + " " + lastname}` });
+  next();
 });
 module.exports = app;
