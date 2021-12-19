@@ -3,6 +3,8 @@ var app = express();
 const dotenv = require("dotenv");
 dotenv.config();
 let router = express.Router();
+const bodyParser = require("body-parser");
+
 app.get("/", (req, res) => {
   const absolutePath = __dirname + "/views/index.html";
   res.sendFile(absolutePath);
@@ -47,6 +49,8 @@ app.use(function (req, res, next) {
 //   const a = req.params.word;
 //   res.json({ echo: a });
 // });
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.get("/name", (req, res, next) => {
   let firstname = req.query.first;
   let lastname = req.query.last;
@@ -54,4 +58,5 @@ app.get("/name", (req, res, next) => {
   res.json({ name: `${firstname + " " + lastname}` });
   next();
 });
+
 module.exports = app;
