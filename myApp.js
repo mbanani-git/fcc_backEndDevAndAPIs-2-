@@ -32,14 +32,19 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.get(
-  "/now",
-  (req, res, next) => {
-    req.time = new Date().toString();
-    next();
-  },
-  (req, res) => {
-    res.json({ time: req.time });
-  }
-);
+// app.get(
+//   "/now",
+//   (req, res, next) => {
+//     req.time = new Date().toString();
+//     next();
+//   },
+//   (req, res) => {
+//     res.json({ time: req.time });
+//   }
+// );
+app.get("/:word/echo", (req, res, next) => {
+  console.log(req.params.word);
+  const a = req.params.word;
+  res.json({ echo: a });
+});
 module.exports = app;
